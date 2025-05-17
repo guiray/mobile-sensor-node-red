@@ -20,7 +20,7 @@ Ce projet a pour but de concevoir et développer un système capable de **captur
 ---
 
 ## 🛠️ Lancement local
-1. Démarrer le serveur web avec `http-server`
+1. Démarrer le serveur web avec `http-server -S -C .\cert\192.168.0.13.pem -K .\cert\192.168.0.13-key.pem` (besoin d'avoir générer le certificat et la clé ssl dans le dossier cert, avec mkcert)
 2. Ouvrir la webapp sur un mobile (via IP locale)
 
 

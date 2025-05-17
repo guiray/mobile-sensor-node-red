@@ -21,5 +21,6 @@ function requestDeviceOrientation()
     else 
     {
         alert('not supported')
+        window.addEventListener('deviceorientation', handleOrientation)
     }
 }
