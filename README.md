@@ -32,4 +32,6 @@ Ce projet a pour but de concevoir et développer un système capable de **captur
 
 - Node-RED documentation
 - [DeviceMotionEvent](https://developer.mozilla.org/en-US/docs/Web/API/DeviceMotionEvent)
+- [Understanding the Device Motion Event API](https://medium.com/@kamresh485/understanding-the-device-motion-event-api-0ce5b3e252f1)
+- [Detect the device orientation with JS [tutorial]](https://www.youtube.com/watch?v=fMDuFoqSQfw)
 - Web APIs (DeviceMotion, WebSocket)
