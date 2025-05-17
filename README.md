@@ -11,16 +11,15 @@ Ce projet a pour but de concevoir et développer un système capable de **captur
 
 ## 🗂️ Répertoires
 ```
+📁 cert/              → Certificat et clé SSL (non tracké pat git)
 📁 public/            → Fichiers statiques de la webapp mobile
 📁 node-red-flows/    → Fichiers JSON d'import Node-RED
-📁 docs/              → Documentation (PDF, images, etc.)
-📄 README.md
 ```
 
 ---
 
 ## 🛠️ Lancement local
-1. Démarrer le serveur web avec `http-server -S -C .\cert\192.168.0.13.pem -K .\cert\192.168.0.13-key.pem` (besoin d'avoir générer le certificat et la clé ssl dans le dossier cert, avec mkcert)
+1. Démarrer le serveur web avec `http-server -S -C .\cert\192.168.0.13.pem -K .\cert\192.168.0.13-key.pem` (besoin d'avoir générer le certificat et la clé ssl dans le dossier cert, avec [mkcert](https://github.com/FiloSottile/mkcert))
 2. Ouvrir la webapp sur un mobile (via IP locale)
 
 
