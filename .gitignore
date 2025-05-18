@@ -137,3 +137,9 @@ dist
 
 # ssl files
 cert/
+
+# Node-RED specific files to ignore
+.sessions.json
+*.json.backup
+*_cred.json
+.config.*.json
