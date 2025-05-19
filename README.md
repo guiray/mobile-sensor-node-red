@@ -13,24 +13,36 @@ Ce projet a pour but de concevoir et développer un système capable de **captur
 ```
 📁 cert/              → Certificat et clé SSL (non tracké pat git)
 📁 public/            → Fichiers statiques de la webapp mobile
-📁 node-red-flows/    → Fichiers JSON d'import Node-RED
+📁 node-red/          → Fichiers JSON Node-RED
 ```
 
 ---
 
+## Environnement de développement
+
+### Prérequis
+
+- Docker Desktop
+- [mkcert](https://github.com/FiloSottile/mkcert)
+- Node.js
+- 
+
+1. Besoin d'avoir générer le certificat et la clé ssl dans le dossier cert, avec [mkcert](https://github.com/FiloSottile/mkcert)
+2. 
+
+---
+
 ## 🛠️ Lancement local
-1. Démarrer le serveur web avec `http-server -S -C .\cert\192.168.0.13.pem -K .\cert\192.168.0.13-key.pem` (besoin d'avoir générer le certificat et la clé ssl dans le dossier cert, avec [mkcert](https://github.com/FiloSottile/mkcert))
+1. Démarrer le serveur web avec `http-server -S -C .\cert\192.168.0.13.pem -K .\cert\192.168.0.13-key.pem` 
 2. Ouvrir la webapp sur un mobile (via IP locale)
-
-
+3. Démarrer docker avec node-red avec `docker-compose up`
 
 
 ---
 
 ## 📖 Références
 
-- Node-RED documentation
+- [Node-RED documentation](https://nodered.org/docs/getting-started/windows#running-on-windows)
 - [DeviceMotionEvent](https://developer.mozilla.org/en-US/docs/Web/API/DeviceMotionEvent)
 - [Understanding the Device Motion Event API](https://medium.com/@kamresh485/understanding-the-device-motion-event-api-0ce5b3e252f1)
 - [Detect the device orientation with JS [tutorial]](https://www.youtube.com/watch?v=fMDuFoqSQfw)
-- Web APIs (DeviceMotion, WebSocket)

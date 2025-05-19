@@ -8,6 +8,12 @@
         "env": []
     },
     {
+        "id": "872c6787997b744b",
+        "type": "websocket-listener",
+        "path": "/ws/accelerometer",
+        "wholemsg": "false"
+    },
+    {
         "id": "a94d8dfbbc02baf5",
         "type": "debug",
         "z": "4bd885d3fe93cdd6",
@@ -19,8 +25,23 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 240,
+        "x": 620,
+        "y": 200,
         "wires": []
+    },
+    {
+        "id": "6f5bd214f28fa1fd",
+        "type": "websocket in",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "server": "872c6787997b744b",
+        "client": "",
+        "x": 300,
+        "y": 200,
+        "wires": [
+            [
+                "a94d8dfbbc02baf5"
+            ]
+        ]
     }
 ]
