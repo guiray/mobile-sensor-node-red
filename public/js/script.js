@@ -1,3 +1,24 @@
+// Connect to node-red websocket
+const ws_URL = `wss://${window.location.hostname}:1880/ws/accelerometer`;
+let socket = new WebSocket(ws_URL);
+
+socket.onopen = function()
+{
+    alert('Connected to Node-Red');
+}
+
+function requestDeviceOrientation()
+{
+    if ('DeviceOrientationEvent' in window)
+    {
+        window.addEventListener('deviceorientation', handleOrientation)
+    }
+    else 
+    {
+        alert('not supported')
+    }
+}
+
 function handleOrientation(e)
 {
     console.log(e)
@@ -12,15 +33,5 @@ function handleOrientation(e)
 }
 
 
-function requestDeviceOrientation()
-{
-    if ('DeviceOrientationEvent' in window)
-    {
-        window.addEventListener('deviceorientation', handleOrientation)
-    }
-    else 
-    {
-        alert('not supported')
-        window.addEventListener('deviceorientation', handleOrientation)
-    }
-}
+
+
