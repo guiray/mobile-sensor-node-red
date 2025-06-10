@@ -22,11 +22,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 620,
-        "y": 200,
+        "x": 720,
+        "y": 180,
         "wires": []
     },
     {
@@ -40,8 +41,30 @@
         "y": 200,
         "wires": [
             [
-                "a94d8dfbbc02baf5"
+                "219f6d6991c12725"
             ]
+        ]
+    },
+    {
+        "id": "219f6d6991c12725",
+        "type": "function",
+        "z": "4bd885d3fe93cdd6",
+        "name": "function 1",
+        "func": "const data = JSON.parse(msg.payload);\n\nreturn [\n    { payload: data.x, topic: 'x' },\n    { payload: data.y, topic: 'y' },\n    { payload: data.z, topic: 'z' }\n];\n",
+        "outputs": 3,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 200,
+        "wires": [
+            [
+                "a94d8dfbbc02baf5"
+            ],
+            [],
+            []
         ]
     }
 ]

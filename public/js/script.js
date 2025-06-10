@@ -4,7 +4,7 @@ let socket = new WebSocket(ws_URL);
 
 socket.onopen = function()
 {
-    alert('Connected to Node-Red');
+    //alert('Connected to Node-Red');
 }
 
 function requestDeviceOrientation()
@@ -21,7 +21,7 @@ function requestDeviceOrientation()
 
 function handleOrientation(e)
 {
-    console.log(e)
+    //console.log(e)
 
     let x = e.beta
     let y = e.gamma
@@ -30,6 +30,13 @@ function handleOrientation(e)
     document.getElementById('rotationX').textContent = x;
     document.getElementById('rotationY').textContent = y;
     document.getElementById('rotationZ').textContent = z;
+
+    socket.send(JSON.stringify({
+        x: x,
+        y: y,
+        z: z,
+        timestamp: Date.now()
+    }));
 }
 
 
