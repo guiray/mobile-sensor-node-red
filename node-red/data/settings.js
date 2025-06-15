@@ -91,8 +91,8 @@ module.exports = {
 
     /** Option 1: static object */
     https: {
-      key: require("fs").readFileSync('/cert/192.168.0.13-key.pem'),
-      cert: require("fs").readFileSync('/cert/192.168.0.13.pem')
+      key: require("fs").readFileSync('/cert/192.168.0.15-key.pem'),
+      cert: require("fs").readFileSync('/cert/192.168.0.15.pem')
     },
 
     /** Option 2: function that returns the HTTP configuration object */

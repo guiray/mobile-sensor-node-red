@@ -34,8 +34,7 @@ function handleOrientation(e)
     socket.send(JSON.stringify({
         x: x,
         y: y,
-        z: z,
-        timestamp: Date.now()
+        z: z
     }));
 }
 

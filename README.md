@@ -27,13 +27,16 @@ Ce projet a pour but de concevoir et développer un système capable de **captur
 - Node.js
 - 
 
-1. Besoin d'avoir générer le certificat et la clé ssl dans le dossier cert, avec [mkcert](https://github.com/FiloSottile/mkcert)
+1. Besoin d'avoir générer le certificat et la clé ssl dans le dossier cert, avec [mkcert](https://github.com/FiloSottile/mkcert) 
+```
+mkcert filippo@example.com
+```
 2. 
 
 ---
 
 ## 🛠️ Lancement local
-1. Démarrer le serveur web avec `http-server -S -C .\cert\192.168.0.13.pem -K .\cert\192.168.0.13-key.pem` 
+1. Démarrer le serveur web avec `http-server -S -C .\cert\192.168.0.15.pem -K .\cert\192.168.0.15-key.pem` 
 2. Ouvrir la webapp sur un mobile (via IP locale)
 3. Démarrer docker avec node-red avec `docker-compose up`
 
