@@ -17,7 +17,7 @@
         "id": "a94d8dfbbc02baf5",
         "type": "debug",
         "z": "4bd885d3fe93cdd6",
-        "name": "debug 1",
+        "name": "print input",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -26,8 +26,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
-        "y": 180,
+        "x": 420,
+        "y": 420,
         "wires": []
     },
     {
@@ -37,7 +37,7 @@
         "name": "",
         "server": "872c6787997b744b",
         "client": "",
-        "x": 300,
+        "x": 200,
         "y": 200,
         "wires": [
             [
@@ -57,14 +57,194 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 520,
+        "x": 400,
         "y": 200,
         "wires": [
             [
-                "a94d8dfbbc02baf5"
+                "283079b835155e47"
             ],
-            [],
+            [
+                "283079b835155e47"
+            ],
+            [
+                "283079b835155e47"
+            ]
+        ]
+    },
+    {
+        "id": "623b6a4b086a536f",
+        "type": "file",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "filename": "/data/position/test.log",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 940,
+        "y": 500,
+        "wires": [
             []
+        ]
+    },
+    {
+        "id": "28945ac37309962b",
+        "type": "inject",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "time",
+                "v": "iso",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "test message",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "31d938af.96f3b8",
+        "type": "function",
+        "z": "4bd885d3fe93cdd6",
+        "name": "Modify Payload",
+        "func": "var d = new Date();\nvar p = { \"time\": d, \"posX\": msg.payload, \"posY\": msg.payload.x, \"posZ\": msg.payload.z };\n//msg.payload=JSON.stringify(payload);\nmsg.payload=p;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 500,
+        "wires": [
+            [
+                "8a32328c.6a20a8"
+            ]
+        ]
+    },
+    {
+        "id": "8a32328c.6a20a8",
+        "type": "json",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 730,
+        "y": 500,
+        "wires": [
+            [
+                "623b6a4b086a536f"
+            ]
+        ]
+    },
+    {
+        "id": "22f14ad0.516cb6",
+        "type": "debug",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 592,
+        "y": 1075,
+        "wires": []
+    },
+    {
+        "id": "211ef2bc.c51be6",
+        "type": "file in",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "filename": "",
+        "format": "lines",
+        "chunk": false,
+        "sendError": false,
+        "x": 319,
+        "y": 1059,
+        "wires": [
+            [
+                "22f14ad0.516cb6"
+            ]
+        ]
+    },
+    {
+        "id": "c1829945.5cab08",
+        "type": "inject",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 262,
+        "y": 959,
+        "wires": [
+            [
+                "801f85b2.8b5a08"
+            ]
+        ]
+    },
+    {
+        "id": "801f85b2.8b5a08",
+        "type": "function",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "func": "msg.filename=\"/home/pi/logs/sensors.txt\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 954,
+        "wires": [
+            [
+                "211ef2bc.c51be6"
+            ]
+        ]
+    },
+    {
+        "id": "283079b835155e47",
+        "type": "join",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "useparts": false,
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 150,
+        "y": 500,
+        "wires": [
+            [
+                "a94d8dfbbc02baf5"
+            ]
         ]
     }
 ]
