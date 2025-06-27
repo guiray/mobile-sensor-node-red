@@ -38,6 +38,12 @@ function handleOrientation(e)
     }));
 }
 
-
+function requestSaveValues()
+{
+    socket.send(JSON.stringify({
+        type: "save-request",
+        timestamp: Date.now()
+    }));
+}
 
 
