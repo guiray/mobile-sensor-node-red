@@ -23,18 +23,20 @@ function handleOrientation(e)
 {
     //console.log(e)
 
-    let x = e.beta
-    let y = e.gamma
-    let z = e.alpha
+    let x = parseFloat(e.beta.toFixed(2));
+    let y = parseFloat(e.gamma.toFixed(2));
+    let z = parseFloat(e.alpha.toFixed(2));
 
     document.getElementById('rotationX').textContent = x;
     document.getElementById('rotationY').textContent = y;
     document.getElementById('rotationZ').textContent = z;
 
     socket.send(JSON.stringify({
+        type: "sensor-data",
         x: x,
         y: y,
-        z: z
+        z: z,
+        timestamp: Date.now()
     }));
 }
 

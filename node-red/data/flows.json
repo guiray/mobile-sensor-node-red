@@ -26,8 +26,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 420,
-        "y": 420,
+        "x": 920,
+        "y": 160,
         "wires": []
     },
     {
@@ -37,11 +37,11 @@
         "name": "",
         "server": "872c6787997b744b",
         "client": "",
-        "x": 200,
-        "y": 200,
+        "x": 120,
+        "y": 240,
         "wires": [
             [
-                "219f6d6991c12725"
+                "ec8becde3001d83d"
             ]
         ]
     },
@@ -49,16 +49,16 @@
         "id": "219f6d6991c12725",
         "type": "function",
         "z": "4bd885d3fe93cdd6",
-        "name": "function 1",
-        "func": "const data = JSON.parse(msg.payload);\n\nreturn [\n    { payload: data.x, topic: 'x' },\n    { payload: data.y, topic: 'y' },\n    { payload: data.z, topic: 'z' }\n];\n",
+        "name": "split values",
+        "func": "const data = msg.payload;\n\nglobal.set(\"latest_sensor_data\", {\n    x: data.x,\n    y: data.y,\n    z: data.z\n});\n\nreturn [\n    { payload: data.x, topic: 'x' },\n    { payload: data.y, topic: 'y' },\n    { payload: data.z, topic: 'z' }\n];\n",
         "outputs": 3,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 200,
+        "x": 570,
+        "y": 180,
         "wires": [
             [
                 "283079b835155e47"
@@ -76,14 +76,14 @@
         "type": "file",
         "z": "4bd885d3fe93cdd6",
         "name": "",
-        "filename": "/data/position/test.log",
+        "filename": "/data/position/test.jsonl",
         "filenameType": "str",
         "appendNewline": true,
         "createDir": true,
         "overwriteFile": "false",
         "encoding": "none",
         "x": 940,
-        "y": 500,
+        "y": 420,
         "wires": [
             []
         ]
@@ -109,7 +109,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "test message",
-        "x": 130,
+        "x": 210,
         "y": 380,
         "wires": [
             []
@@ -127,12 +127,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 320,
-        "y": 500,
+        "x": 440,
+        "y": 480,
         "wires": [
-            [
-                "8a32328c.6a20a8"
-            ]
+            []
         ]
     },
     {
@@ -144,11 +142,9 @@
         "action": "",
         "pretty": true,
         "x": 730,
-        "y": 500,
+        "y": 480,
         "wires": [
-            [
-                "623b6a4b086a536f"
-            ]
+            []
         ]
     },
     {
@@ -239,11 +235,96 @@
         "reduceInit": "",
         "reduceInitType": "num",
         "reduceFixup": "",
-        "x": 150,
-        "y": 500,
+        "x": 770,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d80190a34b5d283c",
+        "type": "switch",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "property": "payload.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "sensor-data",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "save-request",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 410,
+        "y": 240,
         "wires": [
             [
-                "a94d8dfbbc02baf5"
+                "219f6d6991c12725"
+            ],
+            [
+                "cf309bea703641ad"
+            ]
+        ]
+    },
+    {
+        "id": "ec8becde3001d83d",
+        "type": "json",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 290,
+        "y": 240,
+        "wires": [
+            [
+                "d80190a34b5d283c"
+            ]
+        ]
+    },
+    {
+        "id": "cf806b5c775ed7b8",
+        "type": "debug",
+        "z": "4bd885d3fe93cdd6",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "cf309bea703641ad",
+        "type": "function",
+        "z": "4bd885d3fe93cdd6",
+        "name": "function 1",
+        "func": "var d = new Date();\nvar data = global.get(\"latest_sensor_data\");\n\nif (!data) {\n    node.warn(\"No sensor data available.\");\n    return null;\n}\n\nvar p = {\n    time: d.toISOString(),  // or just use d if you want full object\n    posX: data.x,\n    posY: data.y,\n    posZ: data.z\n};\n\nmsg.payload = JSON.stringify(p) + \"\\n\";  // write as JSON string\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 360,
+        "wires": [
+            [
+                "cf806b5c775ed7b8",
+                "8a32328c.6a20a8",
+                "623b6a4b086a536f"
             ]
         ]
     }
