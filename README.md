@@ -13,6 +13,8 @@ Ce projet vise à concevoir un système léger et interactif qui permet de :
 ---
 
 ## Arborescence du projet
+
+```
 /
 ├── public/ # WebApp (HTML/CSS/JS)
 │ ├── index.html
@@ -25,6 +27,7 @@ Ce projet vise à concevoir un système léger et interactif qui permet de :
 │ └── key.pem
 ├── docker-compose.yml # Déploiement de Node-RED
 └── README.md
+```
 
 ---
 
