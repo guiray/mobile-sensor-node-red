@@ -28,6 +28,7 @@ Ce projet vise à concevoir un système léger et interactif qui permet de :
 │ ├── cert.pem
 │ └── key.pem
 ├── docker-compose.yml # Déploiement de Node-RED
+├── images/ # png et gif pour le README
 └── README.md
 ```
 
