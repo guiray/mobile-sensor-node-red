@@ -69,6 +69,9 @@ docker-compose up -d
 
 Une fois Node-RED démarré, ouvrez votre navigateur à l'adresse suivante : `https://localhost:1880/ui`
 ou, depuis un appareil sur le même réseau : `https://<IP locale du PC>:1880/ui`
+
+![alt text](images/node-red_dashboard.png "Dashboard")
+
 Le dashboard vous permettra de visualiser les valeurs brutes et filtrées en temps réel.
 
 ---
