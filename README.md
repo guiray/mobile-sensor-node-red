@@ -58,7 +58,7 @@ Placez les fichiers générés dans le dossier `cert/`.
 
 ```bash
 npm install -g http-server
-http-server public -S -C cert/cert.pem -K cert/key.pem -p 8080
+http-server public -S -C cert/cert.pem -K cert/key.pem -p 8080 # Remplacez cert.pm et key.pm par vos certificats HTTPS
 ```
 
 >Accédez à la webapp via :
@@ -68,6 +68,12 @@ http-server public -S -C cert/cert.pem -K cert/key.pem -p 8080
 
 ### 3. Démarrer Node-RED avec Docker
 
+Installer les dépendances Node-RED :
+```bash
+cd node-red/data
+npm install
+```
+Démarrer Node-Red avec Docker :
 ```bash
 docker-compose up -d
 ```
