@@ -1,7 +1,7 @@
 # Acquisition et transmission de données d'accéléromètre
 Projet de transmission et visualisation de données d'accéléromètre provenant d'un appareil mobile via une webapp, avec traitement en temps réel dans Node-RED.
 
-> Ce projet est réalisé dans le cadre du **cours de Projet d'intégration**.
+> Ce projet est réalisé dans le cadre du **cours de Projet d'intégration** (INF 4018 - TÉLUQ).
 
 ## Contexte
 Ce projet vise à concevoir un système léger et interactif qui permet de :
@@ -75,10 +75,10 @@ docker-compose up -d
     - Lit les données x, y, z du capteur via DeviceOrientationEvent
     - Transmet les données via WebSocket (wss://)
     - Permet de déclencher une sauvegarde manuelle
+
 - Node-RED
     - Reçoit les données via WebSocket
     - Affiche les valeurs (Dashboard)
-
     - Filtre les données (ex. moyenne)
     - Sauvegarde une ligne .jsonl sur demande
 

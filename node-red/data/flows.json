@@ -14,21 +14,120 @@
         "wholemsg": "false"
     },
     {
-        "id": "a94d8dfbbc02baf5",
-        "type": "debug",
-        "z": "4bd885d3fe93cdd6",
-        "name": "print input",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 920,
-        "y": 160,
-        "wires": []
+        "id": "a8650cc64c238153",
+        "type": "ui_group",
+        "name": "Valeurs brutes",
+        "tab": "ec4d579f118bdbdd",
+        "order": 1,
+        "disp": true,
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ec4d579f118bdbdd",
+        "type": "ui_tab",
+        "name": "Capteurs",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f9c64ca2e62ea6f7",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
     },
     {
         "id": "6f5bd214f28fa1fd",
@@ -61,13 +160,16 @@
         "y": 180,
         "wires": [
             [
-                "283079b835155e47"
+                "283079b835155e47",
+                "24eea21858629491"
             ],
             [
-                "283079b835155e47"
+                "283079b835155e47",
+                "43997daaa35fbb56"
             ],
             [
-                "283079b835155e47"
+                "283079b835155e47",
+                "146c5175825ffcb5"
             ]
         ]
     },
@@ -82,53 +184,8 @@
         "createDir": true,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 940,
-        "y": 420,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "28945ac37309962b",
-        "type": "inject",
-        "z": "4bd885d3fe93cdd6",
-        "name": "",
-        "props": [
-            {
-                "p": "topic",
-                "vt": "str"
-            },
-            {
-                "p": "time",
-                "v": "iso",
-                "vt": "date"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "test message",
-        "x": 210,
-        "y": 380,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "31d938af.96f3b8",
-        "type": "function",
-        "z": "4bd885d3fe93cdd6",
-        "name": "Modify Payload",
-        "func": "var d = new Date();\nvar p = { \"time\": d, \"posX\": msg.payload, \"posY\": msg.payload.x, \"posZ\": msg.payload.z };\n//msg.payload=JSON.stringify(payload);\nmsg.payload=p;\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 440,
-        "y": 480,
+        "x": 800,
+        "y": 400,
         "wires": [
             []
         ]
@@ -235,8 +292,8 @@
         "reduceInit": "",
         "reduceInitType": "num",
         "reduceFixup": "",
-        "x": 770,
-        "y": 160,
+        "x": 790,
+        "y": 60,
         "wires": [
             []
         ]
@@ -327,5 +384,89 @@
                 "623b6a4b086a536f"
             ]
         ]
+    },
+    {
+        "id": "24eea21858629491",
+        "type": "ui_gauge",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "group": "a8650cc64c238153",
+        "order": 1,
+        "width": 3,
+        "height": 3,
+        "gtype": "compass",
+        "title": "X",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-180",
+        "max": "180",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 830,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "43997daaa35fbb56",
+        "type": "ui_gauge",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "group": "a8650cc64c238153",
+        "order": 2,
+        "width": 3,
+        "height": 3,
+        "gtype": "compass",
+        "title": "Y",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-90",
+        "max": "90",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 830,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "146c5175825ffcb5",
+        "type": "ui_gauge",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "group": "a8650cc64c238153",
+        "order": 3,
+        "width": 3,
+        "height": 3,
+        "gtype": "compass",
+        "title": "Z",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "360",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 830,
+        "y": 260,
+        "wires": []
     }
 ]

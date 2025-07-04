@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>Device Motion Test</title>
+    <title>Acquisition et transmission de données d'accéléromètre</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Accelerometer Monitor</h1>
+        <h1>Acquisition et transmission de données d'accéléromètre</h1>
         <button onclick="requestDeviceOrientation()">Démarrer la capture</button>
         
         <div class="values-section">
@@ -21,15 +21,17 @@
                 <p>Z: <span id="rotationZ">-</span></p>
             </div>
             
+            <!--
             <h2>Filtered Values</h2>
             <div class="values">
                 <p>X: <span id="filteredX">-</span></p>
                 <p>Y: <span id="filteredY">-</span></p>
                 <p>Z: <span id="filteredZ">-</span></p>
             </div>
+            -->
         </div>
 
-        <button onclick="requestSaveValues()">Save Current Values</button>
+        <button onclick="requestSaveValues()">Sauvegarder les valeurs courantes</button>
     </div>
 
 </body>
