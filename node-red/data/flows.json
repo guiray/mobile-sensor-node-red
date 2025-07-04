@@ -353,7 +353,7 @@
         "type": "function",
         "z": "4bd885d3fe93cdd6",
         "name": "save to file",
-        "func": "var d = new Date();\nvar data = global.get(\"latest_sensor_data\");\n\nlet x = global.get(\"smoothed_x\");\nlet y = global.get(\"smoothed_y\");\nlet z = global.get(\"smoothed_z\");\n\nif (!data) {\n    node.warn(\"No sensor data available.\");\n    return null;\n}\n\nvar p = {\n    time: d.toISOString(),  // or just use d if you want full object\n    rawX: data.x,\n    rayY: data.y,\n    rawZ: data.z,\n    smoothX: x,\n    smoothY: y,\n    smoothZ: z\n};\n\nmsg.payload = JSON.stringify(p) + \"\\n\";  // write as JSON string\n\nreturn msg;\n",
+        "func": "var d = new Date();\nvar data = global.get(\"latest_sensor_data\");\n\nlet x = global.get(\"smoothed_x\");\nlet y = global.get(\"smoothed_y\");\nlet z = global.get(\"smoothed_z\");\n\nif (!data) {\n    node.warn(\"No sensor data available.\");\n    return null;\n}\n\nvar p = {\n    time: d.toISOString(),  // or just use d if you want full object\n    rawX: data.x,\n    rawY: data.y,\n    rawZ: data.z,\n    smoothX: x,\n    smoothY: y,\n    smoothZ: z\n};\n\nmsg.payload = JSON.stringify(p) + \"\\n\";  // write as JSON string\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
