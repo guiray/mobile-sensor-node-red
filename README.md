@@ -67,6 +67,10 @@ http-server public -S -C cert/cert.pem -K cert/key.pem -p 8080
 docker-compose up -d
 ```
 
+Une fois Node-RED démarré, ouvrez votre navigateur à l'adresse suivante : `https://localhost:1880/ui`
+ou, depuis un appareil sur le même réseau : `https://<IP locale du PC>:1880/ui`
+Le dashboard vous permettra de visualiser les valeurs brutes et filtrées en temps réel.
+
 ---
 
 ## Fonctionnement global
