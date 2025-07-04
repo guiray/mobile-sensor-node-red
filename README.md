@@ -3,6 +3,9 @@ Projet de transmission et visualisation de données d'accéléromètre provenant
 
 ![alt text](images/sensorRec30fps.gif "Desktop demonstration")
 
+
+[![node red mobile sensor demonstration](https://img.youtube.com/vi/odrhwyR8OUI/hqdefault.jpg)](https://www.youtube.com/embed/odrhwyR8OUI)
+
 > Ce projet est réalisé dans le cadre du **cours de Projet d'intégration** (INF 4018 - TÉLUQ).
 
 ## Contexte
