@@ -3,6 +3,11 @@ Projet de transmission et visualisation de données d'accéléromètre provenant
 
 ![alt text](images/sensorRec30fps.gif "Desktop demonstration")
 
+<video width="600" controls>
+  <source src="images/node-red_mobile-sensor_demonstration.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 
 [![node red mobile sensor demonstration](https://img.youtube.com/vi/odrhwyR8OUI/hqdefault.jpg)](https://www.youtube.com/embed/odrhwyR8OUI)
 
