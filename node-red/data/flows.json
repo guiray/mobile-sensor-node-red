@@ -14,17 +14,6 @@
         "wholemsg": "false"
     },
     {
-        "id": "a8650cc64c238153",
-        "type": "ui_group",
-        "name": "Valeurs brutes",
-        "tab": "ec4d579f118bdbdd",
-        "order": 1,
-        "disp": true,
-        "width": 9,
-        "collapse": false,
-        "className": ""
-    },
-    {
         "id": "ec4d579f118bdbdd",
         "type": "ui_tab",
         "name": "Capteurs",
@@ -138,6 +127,17 @@
         "order": 2,
         "disp": true,
         "width": "9",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a8650cc64c238153",
+        "type": "ui_group",
+        "name": "Valeurs brutes",
+        "tab": "ec4d579f118bdbdd",
+        "order": 1,
+        "disp": true,
+        "width": 9,
         "collapse": false,
         "className": ""
     },
@@ -565,7 +565,7 @@
         "name": "",
         "property": "payload",
         "action": "low",
-        "count": "10",
+        "count": "5",
         "round": "1",
         "mult": "single",
         "reduce": false,
