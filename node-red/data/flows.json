@@ -190,13 +190,13 @@
         "type": "file",
         "z": "4bd885d3fe93cdd6",
         "name": "",
-        "filename": "/data/position/test.jsonl",
+        "filename": "/data/position/savedPos.jsonl",
         "filenameType": "str",
         "appendNewline": true,
         "createDir": true,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 880,
+        "x": 900,
         "y": 400,
         "wires": [
             []
@@ -352,15 +352,15 @@
         "id": "cf309bea703641ad",
         "type": "function",
         "z": "4bd885d3fe93cdd6",
-        "name": "function 1",
-        "func": "var d = new Date();\nvar data = global.get(\"latest_sensor_data\");\n\nif (!data) {\n    node.warn(\"No sensor data available.\");\n    return null;\n}\n\nvar p = {\n    time: d.toISOString(),  // or just use d if you want full object\n    posX: data.x,\n    posY: data.y,\n    posZ: data.z\n};\n\nmsg.payload = JSON.stringify(p) + \"\\n\";  // write as JSON string\n\nreturn msg;\n",
+        "name": "save to file",
+        "func": "var d = new Date();\nvar data = global.get(\"latest_sensor_data\");\n\nlet x = global.get(\"smoothed_x\");\nlet y = global.get(\"smoothed_y\");\nlet z = global.get(\"smoothed_z\");\n\nif (!data) {\n    node.warn(\"No sensor data available.\");\n    return null;\n}\n\nvar p = {\n    time: d.toISOString(),  // or just use d if you want full object\n    rawX: data.x,\n    rayY: data.y,\n    rawZ: data.z,\n    smoothX: x,\n    smoothY: y,\n    smoothZ: z\n};\n\nmsg.payload = JSON.stringify(p) + \"\\n\";  // write as JSON string\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 600,
+        "x": 610,
         "y": 360,
         "wires": [
             [
@@ -469,7 +469,8 @@
         "y": 60,
         "wires": [
             [
-                "f1d35ece66b78f1e"
+                "f1d35ece66b78f1e",
+                "ccd528abf97e6986"
             ]
         ]
     },
@@ -497,8 +498,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 970,
-        "y": 60,
+        "x": 1030,
+        "y": 180,
         "wires": []
     },
     {
@@ -525,8 +526,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 970,
-        "y": 100,
+        "x": 1030,
+        "y": 220,
         "wires": []
     },
     {
@@ -553,8 +554,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 970,
-        "y": 140,
+        "x": 1030,
+        "y": 260,
         "wires": []
     },
     {
@@ -572,7 +573,8 @@
         "y": 100,
         "wires": [
             [
-                "902f928d14a5a3c4"
+                "902f928d14a5a3c4",
+                "9d0ad946f2061e88"
             ]
         ]
     },
@@ -591,8 +593,63 @@
         "y": 140,
         "wires": [
             [
-                "2ee9e9584488bb8a"
+                "2ee9e9584488bb8a",
+                "51856b38d67b537f"
             ]
+        ]
+    },
+    {
+        "id": "ccd528abf97e6986",
+        "type": "function",
+        "z": "4bd885d3fe93cdd6",
+        "name": "smooth X",
+        "func": "global.set(\"smoothed_x\", msg.payload);\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9d0ad946f2061e88",
+        "type": "function",
+        "z": "4bd885d3fe93cdd6",
+        "name": "smooth Y",
+        "func": "global.set(\"smoothed_y\", msg.payload);\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "51856b38d67b537f",
+        "type": "function",
+        "z": "4bd885d3fe93cdd6",
+        "name": "smooth Z",
+        "func": "global.set(\"smoothed_z\", msg.payload);\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 140,
+        "wires": [
+            []
         ]
     }
 ]
