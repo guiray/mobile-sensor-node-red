@@ -48,7 +48,8 @@
                 "default": "#097479",
                 "baseColor": "#097479",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "customTheme": {
                 "name": "Untitled Theme 1",
@@ -130,6 +131,17 @@
         }
     },
     {
+        "id": "4ef47703a67ca3b1",
+        "type": "ui_group",
+        "name": "Valeurs filtrées",
+        "tab": "ec4d579f118bdbdd",
+        "order": 2,
+        "disp": true,
+        "width": "9",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "6f5bd214f28fa1fd",
         "type": "websocket in",
         "z": "4bd885d3fe93cdd6",
@@ -156,20 +168,20 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
+        "x": 610,
         "y": 180,
         "wires": [
             [
-                "283079b835155e47",
-                "24eea21858629491"
+                "24eea21858629491",
+                "a95fd71bf7fd2d90"
             ],
             [
-                "283079b835155e47",
-                "43997daaa35fbb56"
+                "43997daaa35fbb56",
+                "49a5176cafbe5b45"
             ],
             [
-                "283079b835155e47",
-                "146c5175825ffcb5"
+                "146c5175825ffcb5",
+                "0c92c0f6d5822e2f"
             ]
         ]
     },
@@ -184,7 +196,7 @@
         "createDir": true,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 800,
+        "x": 880,
         "y": 400,
         "wires": [
             []
@@ -198,8 +210,8 @@
         "property": "payload",
         "action": "",
         "pretty": true,
-        "x": 730,
-        "y": 480,
+        "x": 830,
+        "y": 440,
         "wires": [
             []
         ]
@@ -272,33 +284,6 @@
         ]
     },
     {
-        "id": "283079b835155e47",
-        "type": "join",
-        "z": "4bd885d3fe93cdd6",
-        "name": "",
-        "mode": "custom",
-        "build": "string",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "useparts": false,
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "num",
-        "reduceFixup": "",
-        "x": 790,
-        "y": 60,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "d80190a34b5d283c",
         "type": "switch",
         "z": "4bd885d3fe93cdd6",
@@ -359,7 +344,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 760,
+        "x": 840,
         "y": 360,
         "wires": []
     },
@@ -375,7 +360,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
+        "x": 600,
         "y": 360,
         "wires": [
             [
@@ -468,5 +453,146 @@
         "x": 830,
         "y": 260,
         "wires": []
+    },
+    {
+        "id": "a95fd71bf7fd2d90",
+        "type": "smooth",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "property": "payload",
+        "action": "low",
+        "count": "5",
+        "round": "1",
+        "mult": "single",
+        "reduce": false,
+        "x": 840,
+        "y": 60,
+        "wires": [
+            [
+                "f1d35ece66b78f1e"
+            ]
+        ]
+    },
+    {
+        "id": "f1d35ece66b78f1e",
+        "type": "ui_gauge",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "group": "4ef47703a67ca3b1",
+        "order": 1,
+        "width": 3,
+        "height": 3,
+        "gtype": "compass",
+        "title": "X",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-180",
+        "max": "180",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 970,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "902f928d14a5a3c4",
+        "type": "ui_gauge",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "group": "4ef47703a67ca3b1",
+        "order": 2,
+        "width": 3,
+        "height": 3,
+        "gtype": "compass",
+        "title": "Y",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-90",
+        "max": "90",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 970,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "2ee9e9584488bb8a",
+        "type": "ui_gauge",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "group": "4ef47703a67ca3b1",
+        "order": 3,
+        "width": 3,
+        "height": 3,
+        "gtype": "compass",
+        "title": "Z",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "360",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 970,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "49a5176cafbe5b45",
+        "type": "smooth",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "property": "payload",
+        "action": "low",
+        "count": "10",
+        "round": "1",
+        "mult": "single",
+        "reduce": false,
+        "x": 840,
+        "y": 100,
+        "wires": [
+            [
+                "902f928d14a5a3c4"
+            ]
+        ]
+    },
+    {
+        "id": "0c92c0f6d5822e2f",
+        "type": "smooth",
+        "z": "4bd885d3fe93cdd6",
+        "name": "",
+        "property": "payload",
+        "action": "low",
+        "count": "5",
+        "round": "1",
+        "mult": "single",
+        "reduce": false,
+        "x": 840,
+        "y": 140,
+        "wires": [
+            [
+                "2ee9e9584488bb8a"
+            ]
+        ]
     }
 ]
