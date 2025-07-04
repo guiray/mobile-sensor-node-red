@@ -1,6 +1,8 @@
 # Acquisition et transmission de données d'accéléromètre
 Projet de transmission et visualisation de données d'accéléromètre provenant d'un appareil mobile via une webapp, avec traitement en temps réel dans Node-RED.
 
+![alt text](images/sensorRec30fps.gif "Desktop demonstration")
+
 > Ce projet est réalisé dans le cadre du **cours de Projet d'intégration** (INF 4018 - TÉLUQ).
 
 ## Contexte
@@ -61,6 +63,8 @@ http-server public -S -C cert/cert.pem -K cert/key.pem -p 8080
 >Accédez à la webapp via :
 >https://<IP locale>:8080 (depuis le téléphone)
 
+![alt text](images/webapp_ui.png "UI")
+
 ### 3. Démarrer Node-RED avec Docker
 
 ```bash
@@ -94,6 +98,8 @@ Le dashboard vous permettra de visualiser les valeurs brutes et filtrées en tem
 ## Sauvegarde des données
 - Format : `JSON` par ligne (`.jsonl`)
 - Chemin : `node-red/data/position`
+
+![alt text](images/saveRec30fps.gif "save demonstration")
 
 ---
 
