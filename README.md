@@ -1,15 +1,9 @@
 # Acquisition et transmission de données d'accéléromètre
 Projet de transmission et visualisation de données d'accéléromètre provenant d'un appareil mobile via une webapp, avec traitement en temps réel dans Node-RED.
 
+https://github.com/user-attachments/assets/dfbc0c2f-438c-4068-b56f-5069fe09ef64
+
 ![alt text](images/sensorRec30fps.gif "Desktop demonstration")
-
-<video width="600" controls>
-  <source src="images/node-red_mobile-sensor_demonstration.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-
-[![node red mobile sensor demonstration](https://img.youtube.com/vi/odrhwyR8OUI/hqdefault.jpg)](https://www.youtube.com/embed/odrhwyR8OUI)
 
 > Ce projet est réalisé dans le cadre du **cours de Projet d'intégration** (INF 4018 - TÉLUQ).
 
